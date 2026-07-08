@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.venv/
+
+# Environment Variables
+backend/.env
+
+# Logs
+backend/logs/
+*.log
+
+# Database
+*.db
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# Build
+dist/
+build/
+
+# IDE
+.idea/
+
+# Coverage
+.coverage
+htmlcov/
