@@ -6,10 +6,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from core.config import settings
 from core.logger import configure_logging
 
+from core.ml.inference import ml_engine
+from api.ws import router as ws_router
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     configure_logging()
+    
+    print("Loading ML Engine...")
+    ml_engine.load_model()
 
     print("=" * 60)
     print(f"{settings.PROJECT_NAME} started successfully")
@@ -36,6 +42,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(ws_router)
 
 
 @app.get("/")
