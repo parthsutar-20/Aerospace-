@@ -1,0 +1,25 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AeroVision-MRO  –  YOLOv8-seg Dataset Configuration
+# ─────────────────────────────────────────────────────────────────────────────
+# Place annotated images & polygon labels under the paths below.
+# Label format: YOLO segmentation  (class_id x1 y1 x2 y2 … xn yn, normalised)
+#
+# Recommended tools for annotation:
+#   • Roboflow (https://roboflow.com)  – export as "YOLOv8 Segmentation"
+#   • CVAT     (https://cvat.ai)       – export as "YOLO 1.1"
+# ─────────────────────────────────────────────────────────────────────────────
+
+path: ./data           # Root directory (relative to this file)
+train: images/train    # Training images
+val:   images/val      # Validation images
+test:  images/test     # (optional) Hold-out test split
+
+# Number of classes
+nc: 4
+
+# Class definitions  –  ID must match annotation labels exactly
+names:
+  0: micro-crack        # Hairline or visible cracks on blades
+  1: thermal-pitting    # Small pits caused by heat damage
+  2: blade-erosion      # Material loss from the blade edge or surface
+  3: corrosion          # Oxidation or rust-like degradation

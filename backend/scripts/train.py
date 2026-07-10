@@ -14,10 +14,15 @@ def train_model():
     if not os.path.exists(dataset_path):
         print(f"Dataset config {dataset_path} not found. Please create one.")
         print("Expected format:")
-        print("train: ./data/images/train")
-        print("val: ./data/images/val")
-        print("nc: 3")
-        print("names: ['micro-crack', 'thermal-pitting', 'blade-erosion']")
+        print("  path: ./data")
+        print("  train: images/train")
+        print("  val:   images/val")
+        print("  nc: 4")
+        print("  names:")
+        print("    0: micro-crack       # Hairline or visible cracks on blades")
+        print("    1: thermal-pitting   # Small pits caused by heat damage")
+        print("    2: blade-erosion     # Material loss from the blade edge or surface")
+        print("    3: corrosion         # Oxidation or rust-like degradation")
         return
 
     # Train the model
